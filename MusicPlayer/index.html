@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="lights" aria-hidden="true"></canvas>
+    <main class="app" id="app">
+      <section class="player" aria-label="Music player">
+        <div class="cover" id="cover"><div class="disc"></div></div>
+
+        <div class="meta">
+          <h1 id="title">Song title</h1>
+          <p id="artist">Artist</p>
+        </div>
+
+        <div class="progress">
+          <input
+            id="seek"
+            type="range"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            aria-label="Seek"
+          />
+          <div class="times">
+            <span id="current">0:00</span><span id="duration">0:00</span>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="prev" aria-label="Previous song">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 6h2v12H6zM9.5 12 18 6v12z" />
+            </svg>
+          </button>
+          <button id="play" class="play" aria-label="Play">
+            <svg class="i-play" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <svg class="i-pause" viewBox="0 0 24 24">
+              <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
+            </svg>
+          </button>
+          <button id="next" aria-label="Next song">
+            <svg viewBox="0 0 24 24">
+              <path d="M16 6h2v12h-2zM6 18V6l8.5 6z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="extras">
+          <div class="volume">
+            <button id="mute" aria-label="Mute">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor" />
+                <path
+                  class="waves"
+                  d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  class="slash"
+                  d="M17 9l5 6M22 9l-5 6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <input
+              id="volume"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.8"
+              aria-label="Volume"
+            />
+          </div>
+          <label class="auto"
+            ><input type="checkbox" id="autoplay" checked /> Autoplay</label
+          >
+        </div>
+
+        <p id="status" class="status" role="status"></p>
+      </section>
+      <section class="playlist-wrap" aria-label="Playlist">
+        <h2>Playlist</h2>
+        <ul id="playlist"></ul>
+      </section>
+    </main>
+
+    <audio id="audio" preload="metadata"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>

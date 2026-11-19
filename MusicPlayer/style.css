@@ -1,0 +1,116 @@
+:root {
+  --bg: #0b1317; --card: #121e24; --card2: #1a2a33; --line: #24363f;
+  --ink: #e9f0f2; --muted: #8da2aa; --accent: #f5b942; --danger: #ff8a6b;
+  --fill: 0%;
+}
+* { box-sizing: border-box; margin: 0; }
+body {
+  min-height: 100vh; display: grid; place-items: center; padding: 24px;
+  background: radial-gradient(900px 500px at 15% -10%, #17323a 0, transparent 60%), var(--bg);
+  color: var(--ink); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+
+.app { width: 100%; max-width: 420px; display: grid; gap: 20px; }
+@media (min-width: 860px) { .app { max-width: 920px; grid-template-columns: 400px 1fr; align-items: start; } }
+
+.player, .playlist-wrap {
+  background: rgba(18, 30, 36, .78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line); border-radius: 24px;
+  padding: 28px; box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+}
+
+.cover { display: grid; place-items: center; margin-bottom: 22px; }
+.disc {
+  position: relative; width: min(220px, 60vw); aspect-ratio: 1; border-radius: 50%;
+  background: repeating-radial-gradient(circle, #10181c 0 3px, #182329 3px 5px);
+  box-shadow: 0 0 0 6px #0d1519, 0 18px 40px rgba(0, 0, 0, .5);
+  animation: spin 8s linear infinite; animation-play-state: paused;
+}
+.disc::after {
+  content: ""; position: absolute; inset: 32%; border-radius: 50%;
+  background: var(--art, linear-gradient(135deg, var(--accent), #e0662f)) center / cover;
+  box-shadow: 0 0 0 4px #0d1519;
+}
+.disc::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px;
+  margin: -5px; border-radius: 50%; background: var(--bg); z-index: 1;
+}
+.playing .disc { animation-play-state: running; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Title */
+.meta { text-align: center; margin-bottom: 20px; }
+.meta h1 { font-size: 1.35rem; line-height: 1.3; }
+.meta p { color: var(--muted); margin-top: 4px; }
+
+/* Sliders */
+input[type=range] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 99px;
+  background: linear-gradient(to right, var(--accent) var(--fill), var(--card2) var(--fill));
+  cursor: pointer; outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #fff;
+  box-shadow: 0 0 0 4px rgba(245, 185, 66, .25);
+}
+input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border: 0; border-radius: 50%; background: #fff; }
+input[type=range]::-moz-range-track { height: 6px; border-radius: 99px; background: var(--card2); }
+input[type=range]::-moz-range-progress { height: 6px; border-radius: 99px; background: var(--accent); }
+.times { display: flex; justify-content: space-between; margin-top: 8px; font-size: .8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Controls */
+.controls { display: flex; justify-content: center; align-items: center; gap: 18px; margin: 18px 0; }
+.controls button { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; transition: transform .15s, background .15s; }
+.controls button:hover { background: var(--card2); transform: scale(1.06); }
+.controls svg { width: 24px; height: 24px; fill: currentColor; }
+.controls .play { width: 68px; height: 68px; background: var(--accent); color: #1b1305; }
+.controls .play:hover { background: var(--accent); transform: scale(1.08); }
+.controls .play svg { width: 30px; height: 30px; }
+.i-pause { display: none; }
+.playing .i-play { display: none; }
+.playing .i-pause { display: block; }
+
+/* Volume and autoplay */
+.extras { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.volume { display: flex; align-items: center; gap: 8px; flex: 1; max-width: 190px; }
+.volume button { width: 32px; height: 32px; display: grid; place-items: center; color: var(--muted); }
+.volume button:hover { color: var(--ink); }
+.volume svg { width: 22px; height: 22px; }
+.slash { display: none; }
+.muted .waves { display: none; }
+.muted .slash { display: block; }
+.auto { font-size: .9rem; color: var(--muted); display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.auto input { accent-color: var(--accent); width: 16px; height: 16px; }
+.status { min-height: 1.2em; margin-top: 14px; text-align: center; font-size: .85rem; color: var(--danger); }
+
+/* Playlist */
+.playlist-wrap h2 { font-size: 1rem; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+#playlist { list-style: none; padding: 0; display: grid; gap: 4px; }
+.track {
+  width: 100%; display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 12px;
+  padding: 12px; border-radius: 14px; text-align: left; border-left: 3px solid transparent;
+}
+.track:hover { background: var(--card2); }
+.track.active { background: var(--card2); border-left-color: var(--accent); }
+.track .num { color: var(--muted); font-size: .85rem; text-align: center; }
+.track .name { display: block; font-weight: 600; }
+.track .by { display: block; font-size: .85rem; color: var(--muted); }
+.eq { display: none; gap: 2px; align-items: flex-end; height: 14px; }
+.track.active .eq { display: flex; }
+.eq span { width: 3px; background: var(--accent); border-radius: 2px; animation: bounce 1s ease-in-out infinite; animation-play-state: paused; }
+.eq span:nth-child(2) { animation-delay: .2s; }
+.eq span:nth-child(3) { animation-delay: .4s; }
+.playing .eq span { animation-play-state: running; }
+@keyframes bounce { 0%, 100% { height: 4px; } 50% { height: 14px; } }
+
+@media (prefers-reduced-motion: reduce) { .disc, .eq span { animation: none; } }
+
+#lights { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.app { position: relative; z-index: 1; }
+.cover { transform: scale(calc(1 + var(--bass, 0) * .045)); }
+.disc {
+  box-shadow: 0 0 0 6px #ad9e14, 0 18px 40px rgba(248, 248, 248, 0.5),
+              0 0 calc(24px + var(--bass, 0) * 70px) rgba(245, 185, 66, calc(.12 + var(--bass, 0) * .45));
+}

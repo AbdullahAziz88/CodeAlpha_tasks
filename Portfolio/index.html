@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Abdullah Aziz | Computer Science Student & Web Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Abdullah Aziz, a computer science student in Lahore building web apps and AI-powered tools."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Figtree:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div
+        class="mx-auto flex max-w-5xl items-center justify-between px-5 py-3"
+      >
+        <a
+          href="#top"
+          class="flex items-center gap-2 font-display text-lg font-bold"
+          aria-label="Abdullah Aziz, back to top"
+        >
+          <span class="mark grid h-8 w-8 place-items-center rounded-md text-sm"
+            >AA</span
+          >
+          <span class="hidden sm:inline">Abdullah Aziz</span>
+        </a>
+        <nav class="flex items-center gap-1">
+          <ul
+            id="menu"
+            class="hidden absolute left-0 right-0 top-full flex-col gap-1 border-b border-line bg-bg px-5 py-3 md:static md:flex md:flex-row md:border-0 md:p-0"
+          >
+            <li>
+              <a class="block rounded px-3 py-2 hover:text-accent" href="#about"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                class="block rounded px-3 py-2 hover:text-accent"
+                href="#projects"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                class="block rounded px-3 py-2 hover:text-accent"
+                href="#skills"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a
+                class="block rounded px-3 py-2 hover:text-accent"
+                href="#contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <label class="flex items-center gap-2 px-2 text-sm font-medium"
+            ><span>Theme</span
+            ><button
+              id="theme"
+              type="button"
+              role="switch"
+              aria-checked="false"
+              aria-label="Dark theme"
+              class="switch"
+            >
+              <span class="thumb"
+                ><svg
+                  class="i-sun"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path
+                    d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+                  /></svg
+                ><svg
+                  class="i-moon"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg
+              ></span></button
+          ></label>
+          <button
+            id="burger"
+            type="button"
+            class="rounded px-3 py-2 text-sm font-medium md:hidden"
+            aria-expanded="false"
+            aria-controls="menu"
+          >
+            Menu
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section
+        class="mx-auto grid max-w-5xl items-center gap-12 px-5 pb-20 pt-16 md:grid-cols-[1fr_1.1fr] md:pt-24"
+      >
+        <div>
+          <h1
+            class="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl"
+          >
+            Hi, I’m Abdullah.
+          </h1>
+          <p
+            class="mt-4 min-h-[2.4em] font-display text-2xl font-semibold text-accent sm:text-3xl"
+            aria-live="off"
+          >
+            I build <span id="typed">clean web interfaces</span
+            ><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="mt-6 max-w-[34rem] text-lg text-muted">
+            I’m a computer science student from Lahore. I like building things
+            for the web, and lately I’ve been getting into apps that use AI.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#projects" class="btn btn-solid">My projects</a>
+            <a href="#contact" class="btn btn-line">Contact me</a>
+          </div>
+        </div>
+        <div
+          class="min-w-0 overflow-x-auto rounded-xl border border-line bg-surface p-5 font-mono text-sm leading-7 shadow-sm"
+          role="img"
+          aria-label="A short summary of Abdullah written as a code object"
+        >
+          <pre
+            class="whitespace-pre-wrap break-words"
+          ><code><span class="c">// about.js</span>
+<span class="k">const</span> abdullah = {
+  location: <span class="s">"Lahore, Pakistan"</span>,
+  studying: <span class="s">"Software Engineering"</span>,
+  stack: [<span class="s">"Python"</span>, <span class="s">"HTML"</span>, <span class="s">"Tailwind"</span>, 
+  <span class="s">"JavaScript"</span>,<span class="s">"MERN"</span>]
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- About -->
+
+      <section id="about" class="border-t border-line">
+        <div class="mx-auto max-w-4xl px-5 py-20">
+          <h2 class="font-display text-3xl font-bold">About me</h2>
+          <div
+            class="mt-10 flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-12"
+          >
+            <img
+              src="img/me.png"
+              alt="Photo of Abdullah Aziz"
+              width="640"
+              height="640"
+              loading="lazy"
+              class="aspect-square w-48 shrink-0 rounded-2xl border border-line object-cover shadow-lg md:w-64"
+            />
+            <div class="max-w-[34rem] text-center md:text-left">
+              <p class="text-lg">
+                I’m a software engineering student from Lahore. I started with
+                HTML and CSS a few years ago, and since then I’ve worked with
+                Java, Python, JavaScript and the MERN stack, plus some low-level
+                Assembly at university.
+              </p>
+              <p class="mt-4 text-muted">
+                I’m getting interested in AI engineering and I like building
+                things to learn it. I enjoy taking an idea and turning it into
+                something that actually works.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="border-t border-line">
+        <div class="mx-auto max-w-5xl px-5 py-16">
+          <h2 class="font-display text-3xl font-bold">Projects</h2>
+          <p class="mt-2 text-muted">Things I’ve built or am building.</p>
+          <ul class="mt-10">
+            <li
+              class="grid gap-4 border-t border-line py-8 md:grid-cols-[1fr_1.6fr]"
+            >
+              <div>
+                <h3 class="font-display text-2xl font-semibold">
+                  Sentiment analysis app
+                </h3>
+                <p class="mt-1 text-sm text-muted">
+                  AI-powered sentiment analysis tool
+                </p>
+              </div>
+              <div>
+                <p class="max-w-[38rem]">
+                  A web app that analyzes the sentiment of text using
+                  open-source and Gemma models hosted on Groq.
+                </p>
+                <p class="mt-3 text-sm text-muted">
+                  Built with React, Tailwind CSS and the Groq API.
+                </p>
+
+                <a
+                  class="mt-4 inline-block font-semibold text-accent underline underline-offset-4"
+                  href="https://github.com/AbdullahAziz88"
+                  >View code on GitHub</a
+                >
+              </div>
+            </li>
+            <li
+              class="grid gap-4 border-t border-line py-8 md:grid-cols-[1fr_1.6fr]"
+            >
+              <div>
+                <h3 class="font-display text-2xl font-semibold">Velvet Wash</h3>
+                <p class="mt-1 text-sm text-muted">Course project</p>
+              </div>
+              <div>
+                <p class="max-w-[38rem]">
+                  A business concept for a car wash service, developed with my
+                  team as part of my entrepreneurship coursework.
+                </p>
+                <a
+                  class="mt-4 inline-block font-semibold text-accent underline underline-offset-4"
+                  href="https://github.com/AbdullahAziz88/VelvetWash"
+                  target="_blank"
+                  rel="noopener"
+                  >View code on GitHub</a
+                >
+              </div>
+            </li>
+            <li
+              class="grid gap-4 border-t border-line py-8 md:grid-cols-[1fr_1.6fr]"
+            >
+              <div>
+                <h3 class="font-display text-2xl font-semibold">
+                  Library management system
+                </h3>
+                <p class="mt-1 text-sm text-muted">University project</p>
+              </div>
+              <div>
+                <p class="max-w-[38rem]">
+                  A Python program for running a library. You can add, remove,
+                  display, issue and return books, and the records are saved in
+                  a text file.
+                </p>
+                <p class="mt-3 text-sm text-muted">
+                  Built with Python, using functions, lists, loops and file
+                  handling.
+                </p>
+                <a
+                  class="mt-4 inline-block font-semibold text-accent underline underline-offset-4"
+                  href="https://github.com/AbdullahAziz88/LibraryManagemnt"
+                  target="_blank"
+                  rel="noopener"
+                  >View code on GitHub</a
+                >
+              </div>
+            </li>
+            <li
+              class="grid gap-4 border-y border-line py-8 md:grid-cols-[1fr_1.6fr]"
+            >
+              <div>
+                <h3 class="font-display text-2xl font-semibold">
+                  This portfolio
+                </h3>
+                <p class="mt-1 text-sm text-muted">Rebuilt in 2026</p>
+              </div>
+              <div>
+                <p class="max-w-[38rem]">
+                  The site you’re on. My first version was plain HTML and CSS
+                  from a few years ago, so I rebuilt it from scratch.
+                </p>
+                <p class="mt-3 text-sm text-muted">
+                  Built with HTML, Tailwind CSS and JavaScript.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="border-t border-line">
+        <div
+          class="mx-auto grid max-w-5xl gap-10 px-5 py-16 md:grid-cols-[1fr_1.4fr]"
+        >
+          <h2 class="font-display text-3xl font-bold">Skills</h2>
+          <dl class="grid max-w-[40rem] gap-6">
+            <div>
+              <dt class="font-semibold">Languages</dt>
+              <dd class="mt-1 text-muted">
+                Python, Java, JavaScript, HTML, CSS, Assembly
+              </dd>
+            </div>
+            <div>
+              <dt class="font-semibold">Tools</dt>
+              <dd class="mt-1 text-muted">
+                React, Tailwind CSS, Git and GitHub
+              </dd>
+            </div>
+            <div>
+              <dt class="font-semibold">University coursework</dt>
+              <dd class="mt-1 text-muted">
+                DSA, OOP , COAL, probability and statistics, Linear Algebra,
+                multivariable calculus
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="border-t border-line">
+        <div class="mx-auto max-w-5xl px-5 py-20">
+          <h2 class="font-display text-4xl font-bold sm:text-5xl">
+            Get in touch
+          </h2>
+          <p class="mt-4 max-w-[34rem] text-lg text-muted">
+            If you want to talk about a project or just say hi, email is the
+            best way to reach me.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <span
+              class="select-all rounded-lg border border-line bg-surface px-4 py-3 font-semibold"
+              >abdullahaziz.me@gmail.com</span
+            >
+            <button id="copy" type="button" class="btn btn-solid">
+              Copy email
+            </button>
+            <a
+              href="https://github.com/AbdullahAziz88"
+              class="btn btn-line"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              href="https://www.linkedin.com/in/abdullahaziz88"
+              class="btn btn-line"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-line">
+      <div
+        class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-2 px-5 py-6 text-sm text-muted"
+      >
+        <p>© <span id="year">2026</span> Abdullah Aziz</p>
+        <a class="hover:text-accent" href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
